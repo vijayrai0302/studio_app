@@ -53,6 +53,6 @@ group :development do
   gem 'spring'
    gem 'letter_opener'
     gem 'pry'
-    gem 'rails_best_practices'
+
 end
 
