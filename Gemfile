@@ -35,7 +35,8 @@ end
 # Use Unicorn as the app server
 # gem 'unicorn'
 group :devlopment do
-  gem 'sqlite3'
+gem 'sqlite3', '~> 1.3', '>= 1.3.9'
+
 end
 
 group :production do
