@@ -1,0 +1,14 @@
+<hr class="colorgraph">
+<div class ="container" >
+     <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+       <hr class="colorgraph">
+        <%= simple_form_for @image, :url => {:controller => "images", :action => "create"} do |f| %>
+
+          <%= f.input :name, input_html: { maxlength: 20 }%>
+          <%= f.input :avatar %>
+          <%= f.button :submit, { class: "btn btn-success"} %>
+        <% end %>
+       </div>
+    </div>
+</div>

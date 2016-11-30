@@ -1,0 +1,47 @@
+<hr>
+  <br>
+    <% @album.images.each do |image| %>
+      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <%= image_tag image.avatar_url(:thumb).to_s,size: "400x200" , :class => "img-responsive" %>
+        <b><%= image.name %></b>
+        <% if current_user == @album.user %>
+        <%= link_to "Delete",  [image.album, image], method: :delete, data: {confirm:"Are you sure that you wish to delete #{image.name}?"},class: "btn btn-danger" %>
+        <%= link_to "Edit", edit_album_image_path(image.album,image), class: "btn btn-success" , method: "get" %>
+        <% end %>
+      </div>
+    <% end %>
+
+
+<!-- <h1><b><%= @album.name %></b></h1>
+
+<pre>
+  <%= link_to "Back", albums_path, class: "btn btn-primary" %>
+<% if current_user == @album.user %>
+  <%= link_to "New Image", new_album_image_path, class: "btn btn-primary" %>
+<% end %>
+</pre>
+
+<br />
+<br />
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Images</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @images.each do |image| %>
+      <tr>
+        <td><%= image.name %></td>
+        <td><%= image_tag image.attachment_url %></td>
+        <% if current_user == @album.user %>
+        <td><%= button_to "Delete",  [image.album, image], method: :delete, data: {confirm:"Are you sure that you wish to delete #{image.name}?"},class: "btn btn-danger" %></td>
+        <td><%= button_to "Edit", edit_album_image_path(image.album,image), class: "btn btn-danger" , method: "get" %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+ -->

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>studio</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="container" style="padding-top:20px;">
+      <%= render "header" %>
+    <div style="margin:2cm">
+      <% flash.each do |name, msg| %>
+        <div class="alert alert-<%= name %>">
+          <a href="#" data-dismiss="alert" class="close">×</a>
+            <ul>
+              <li>
+                <%= msg %>
+              </li>
+            </ul>
+        </div>
+      <% end %>
+    </div>
+      <% if !user_signed_in? %>
+              <%= render "sign_up_page" %>
+      <% end %>
+   </div>
+   <%= yield %>
+    <script>
+  (function() {
+  var interakt = document.createElement('script');
+  interakt.type = 'text/javascript'; interakt.async = true;
+  interakt.src = "http://cdn.lvh.me:3000/interakt/00787f6f3bfe3aeaa4eb88cd2d23d004.js";
+  var scrpt = document.getElementsByTagName('script')[0];
+  scrpt.parentNode.insertBefore(interakt, scrpt);
+  })()
+</script>
+  </body>
+</html>
+
+
+
+<!-- <div class="alert alert-danger" role="alert">...</div> -->

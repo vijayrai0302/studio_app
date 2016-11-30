@@ -1,0 +1,24 @@
+<% @albums.each do |album| %>
+  <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+
+      <% if album.avatar? %>
+        <%= link_to album_path(album) do %>
+        <br>
+          <%= image_tag album.avatar_url(:thumb), size: "400x200", :class => "img-responsive" %>
+        <% end %>
+      <% else %>
+        <%= image_tag '200x200' , :class => "img-responsive" %>
+      <% end %>
+        <h2><u><%= album.name %></h2></u>
+        <% if current_user == album.user %>
+          <%= link_to 'Show', album_path(album), class: "btn btn-success" %>
+          <%= link_to 'Edit', edit_album_path(album), class: "btn btn-success" %>
+          <%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        <% else %>
+          <%= link_to 'Show', album_path(album), class: "btn btn-success" %>
+        <% end %>
+
+  </div>
+<% end %>
+
+

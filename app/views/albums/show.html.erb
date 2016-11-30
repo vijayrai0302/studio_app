@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+p {
+     margin-top: 1.5cm;
+}
+</style>
+</head>
+<p>
+<%= "User id: #{@album.user.email}" %>
+  <h2>
+    <div align= "center">
+      <strong >Album Name:</strong>
+      <%= @album.name %>
+    </div>
+
+    <div align= "center">
+      <strong >Album photo >></strong>
+      <%= image_tag @album.avatar_url(:thumb), size: "400x400",:class=>"img-responsive" %>
+    </div>
+
+  </h2>
+
+  <% if current_user == @album.user %>
+  <br>
+    <%#= link_to "New Image", new_album_image_path(@album), class: "btn btn-info" %>
+  <% end %>
+  <br>
+    <%= link_to 'Back', albums_path, class: "btn btn-info" %>
+
+  <%= render 'index' %>
+
+<%#= link_to "Images", album_images_path(@album), class: "btn btn-info" %>
+
+</p>
+</html>

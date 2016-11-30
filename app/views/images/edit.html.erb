@@ -1,0 +1,14 @@
+<hr class="colorgraph">
+<div class ="container" >
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4">
+<h1>Editing Images</h1>
+
+<%= simple_form_for @image, :url => {:controller => "images", :action => "update"} do |f| %>
+<%= f.input :name, input_html: { maxlength: 20 } %>
+<%= f.file_field :avatar %>
+<%= f.button :submit %>
+<% end %>
+    </div>
+  </div>
+</div>
